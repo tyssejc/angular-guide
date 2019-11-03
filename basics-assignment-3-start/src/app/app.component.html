@@ -9,5 +9,20 @@
         <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
       </ol>
     </div>
+    <div class="col-xs-12">
+      <!-- <button class="btn btn-primary" (click)="displayText = !displayText">Display Details</button> -->
+      
+      <button class="btn btn-primary" (click)="onToggleDetails()">Display Details</button>
+      
+      <p *ngIf="displayText">Charlie is learning Angular</p>
+      
+      <ul>
+        <li
+          *ngFor="let logItem of log; let i = index"
+          [ngStyle]="{backgroundColor: i >= 4?'blue':'transparent'}"
+          [ngClass]="{'white-text': i >= 4}">{{ logItem }}</li>
+      </ul>
+    
+    </div>
   </div>
 </div>
